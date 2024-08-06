@@ -1,9 +1,12 @@
+import { auth } from "@/app/auth"
 import { Button } from "@/components/Button"
 import { ArrowAnimated } from "@/components/ui/icons/ArrowAnimated"
 import { TremorPlaceholder } from "@/components/ui/icons/TremorPlaceholder"
 import { siteConfig } from "../siteConfig"
 
-export default function Settings() {
+export default async function Settings() {
+  const session = await auth()
+  console.log(session)
   return (
     <>
       <div className="mt-4 sm:mt-6 lg:mt-10">

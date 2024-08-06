@@ -1,14 +1,14 @@
 "use client"
-import { CategoryBarCard } from "@/components/ui/overview/DashboardCategoryBarCard"
-import { ChartCard } from "@/components/ui/overview/DashboardChartCard"
-import { Filterbar } from "@/components/ui/overview/DashboardFilterbar"
-import { ProgressBarCard } from "@/components/ui/overview/DashboardProgressBarCard"
-import { overviews } from "@/data/overview-data"
-import { OverviewData } from "@/data/schema"
-import { cx } from "@/lib/utils"
-import { subDays, toDate } from "date-fns"
-import React from "react"
-import { DateRange } from "react-day-picker"
+import { CategoryBarCard } from "@/components/ui/overview/DashboardCategoryBarCard";
+import { ChartCard } from "@/components/ui/overview/DashboardChartCard";
+import { Filterbar } from "@/components/ui/overview/DashboardFilterbar";
+import { ProgressBarCard } from "@/components/ui/overview/DashboardProgressBarCard";
+import { overviews } from "@/data/overview-data";
+import { OverviewData } from "@/data/schema";
+import { cx } from "@/lib/utils";
+import { subDays, toDate } from "date-fns";
+import React from "react";
+import { DateRange } from "react-day-picker";
 
 export type PeriodValue = "previous-period" | "last-year" | "no-comparison"
 
@@ -16,31 +16,31 @@ const categories: {
   title: keyof OverviewData
   type: "currency" | "unit"
 }[] = [
-  {
-    title: "Rows read",
-    type: "unit",
-  },
-  {
-    title: "Rows written",
-    type: "unit",
-  },
-  {
-    title: "Queries",
-    type: "unit",
-  },
-  {
-    title: "Payments completed",
-    type: "currency",
-  },
-  {
-    title: "Sign ups",
-    type: "unit",
-  },
-  {
-    title: "Logins",
-    type: "unit",
-  },
-]
+    {
+      title: "Rows read",
+      type: "unit",
+    },
+    {
+      title: "Rows written",
+      type: "unit",
+    },
+    {
+      title: "Queries",
+      type: "unit",
+    },
+    {
+      title: "Payments completed",
+      type: "currency",
+    },
+    {
+      title: "Sign ups",
+      type: "unit",
+    },
+    {
+      title: "Logins",
+      type: "unit",
+    },
+  ]
 
 export type KpiEntry = {
   title: string
@@ -130,6 +130,7 @@ const overviewsDates = overviews.map((item) => toDate(item.date).getTime())
 const maxDate = toDate(Math.max(...overviewsDates))
 
 export default function Overview() {
+
   const [selectedDates, setSelectedDates] = React.useState<
     DateRange | undefined
   >({
