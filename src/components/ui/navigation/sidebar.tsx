@@ -3,9 +3,8 @@ import { siteConfig } from "@/app/siteConfig"
 import { cx, focusRing } from "@/lib/utils"
 import {
   RiHome2Line,
-  RiLinkM,
   RiListCheck,
-  RiSettings5Line,
+  RiSettings5Line
 } from "@remixicon/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -18,7 +17,7 @@ import { UserProfileDesktop, UserProfileMobile } from "./UserProfile"
 
 const navigation = [
   { name: "Overview", href: siteConfig.baseLinks.overview, icon: RiHome2Line },
-  { name: "Details", href: siteConfig.baseLinks.details, icon: RiListCheck },
+  { name: "Phone Interface", href: siteConfig.baseLinks.phoneInterface, icon: RiListCheck },
   {
     name: "Settings",
     href: siteConfig.baseLinks.settings,
@@ -26,28 +25,29 @@ const navigation = [
   },
 ] as const
 
-const shortcuts = [
-  {
-    name: "Add new user",
-    href: "#",
-    icon: RiLinkM,
-  },
-  {
-    name: "Workspace usage",
-    href: "#",
-    icon: RiLinkM,
-  },
-  {
-    name: "Cost spend control",
-    href: "#",
-    icon: RiLinkM,
-  },
-  {
-    name: "Overview – Rows written",
-    href: "#",
-    icon: RiLinkM,
-  },
-] as const
+const shortcuts = [] as const
+// [
+//   {
+//     name: "Add new user",
+//     href: "#",
+//     icon: RiLinkM,
+//   },
+//   {
+//     name: "Workspace usage",
+//     href: "#",
+//     icon: RiLinkM,
+//   },
+//   {
+//     name: "Cost spend control",
+//     href: "#",
+//     icon: RiLinkM,
+//   },
+//   {
+//     name: "Overview – Rows written",
+//     href: "#",
+//     icon: RiLinkM,
+//   },
+// ] as const
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -87,11 +87,11 @@ export function Sidebar() {
               ))}
             </ul>
             <div>
-              <span className="text-xs font-medium leading-6 text-gray-500">
+              {/* <span className="text-xs font-medium leading-6 text-gray-500">
                 Shortcuts
-              </span>
+              </span> */}
               <ul aria-label="shortcuts" role="list" className="space-y-0.5">
-                {shortcuts.map((item) => (
+                {shortcuts.map((item: any) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}

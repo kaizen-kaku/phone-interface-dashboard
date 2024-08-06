@@ -5,7 +5,7 @@ export const siteConfig = {
   baseLinks: {
     home: "/",
     overview: "/overview",
-    details: "/details",
+    phoneInterface: "/phone-interace",
     settings: "/settings",
   },
   externalLink: {

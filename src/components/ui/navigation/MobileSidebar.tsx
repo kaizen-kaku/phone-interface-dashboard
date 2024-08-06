@@ -12,46 +12,27 @@ import {
 import { cx, focusRing } from "@/lib/utils"
 import {
   RiHome2Line,
-  RiLinkM,
   RiListCheck,
   RiMenuLine,
-  RiSettings5Line,
+  RiSettings5Line
 } from "@remixicon/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-const navigation = [
-  { name: "Overview", href: siteConfig.baseLinks.overview, icon: RiHome2Line },
-  { name: "Details", href: siteConfig.baseLinks.details, icon: RiListCheck },
-  {
-    name: "Settings",
-    href: siteConfig.baseLinks.settings,
-    icon: RiSettings5Line,
-  },
-] as const
+// Define a type for navigation items
+type NavigationItem = {
+  name: string
+  href: string
+  icon: any
+}
 
-const shortcuts = [
-  {
-    name: "Add new user",
-    href: "#",
-    icon: RiLinkM,
-  },
-  {
-    name: "Workspace usage",
-    href: "#",
-    icon: RiLinkM,
-  },
-  {
-    name: "Cost spend control",
-    href: "#",
-    icon: RiLinkM,
-  },
-  {
-    name: "Overview – Rows written",
-    href: "#",
-    icon: RiLinkM,
-  },
-] as const
+const navigation: NavigationItem[] = [
+  { name: "Overview", href: siteConfig.baseLinks.overview, icon: RiHome2Line },
+  { name: "Phone Interface", href: siteConfig.baseLinks.phoneInterface, icon: RiListCheck },
+  { name: "Settings", href: siteConfig.baseLinks.settings, icon: RiSettings5Line },
+]
+
+const shortcuts: NavigationItem[] = []; // Define shortcuts with the same type
 
 export default function MobileSidebar() {
   const pathname = usePathname()
@@ -61,6 +42,7 @@ export default function MobileSidebar() {
     }
     return pathname === itemHref || pathname.startsWith(itemHref)
   }
+
   return (
     <>
       <Drawer>
@@ -72,7 +54,7 @@ export default function MobileSidebar() {
           >
             <RiMenuLine
               className="size-6 shrink-0 sm:size-5"
-              aria-hidden="true"
+              aria-hidden={true} // Change to boolean true
             />
           </Button>
         </DrawerTrigger>
@@ -101,7 +83,7 @@ export default function MobileSidebar() {
                       >
                         <item.icon
                           className="size-5 shrink-0"
-                          aria-hidden="true"
+                          aria-hidden={true} // Change to boolean true
                         />
                         {item.name}
                       </Link>
@@ -128,7 +110,7 @@ export default function MobileSidebar() {
                       >
                         <item.icon
                           className="size-4 shrink-0"
-                          aria-hidden="true"
+                          aria-hidden={true} // Change to boolean true
                         />
                         {item.name}
                       </Link>

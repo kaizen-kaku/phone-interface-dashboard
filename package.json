@@ -21,6 +21,8 @@
     "@react-aria/datepicker": "^3.11.1",
     "@react-stately/datepicker": "^3.10.1",
     "@remixicon/react": "^4.2.0",
+    "@tremor/react": "^3.17.4",
+    "@vercel/postgres": "^0.9.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "next": "14.2.5",
